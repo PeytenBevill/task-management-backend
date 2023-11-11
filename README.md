@@ -1,0 +1,1 @@
+# Once this repo is cloned, do not forget you'll need to add the .env file back into the directory since it's being ignored
