@@ -34,4 +34,4 @@ SELECT Users.*
 FROM Users
 INNER JOIN Connections ON Users.UserID = Connections.`User B ID`
 WHERE Connections.`User A ID` = <user_id>
-^ this is for the teams tab to fetch connections in a connections table
+^ this is for the teams tab to fetch connections in a connections table, so we will need a Connections table as well
