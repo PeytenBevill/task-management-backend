@@ -36,8 +36,6 @@ CREATE TABLE UserTeams (
     team_id INT,
     FOREIGN KEY (user_id) 
     REFERENCES Users(user_id) ON DELETE SET NULL,
-);
-
-CREATE TABLE Connections (
-    -- ???
+    FOREIGN KEY (team_id) 
+    REFERENCES Teams(team_id) ON DELETE SET NULL,
 );
