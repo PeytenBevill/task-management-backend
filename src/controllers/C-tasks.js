@@ -1,21 +1,26 @@
 const pool = require("../sql/connections")
 
 const list = (req, res) => {
-  const {user_id} = req.params
-  pool.query('SELECT task_title, task_body, id FROM tasks WHERE user_id = ?',[user_id], (err, rows, fields) => {
-    if(err){
-      return res.status(500).json({message: err.message})
-    } 
-    res.json(rows)
-  })
-}
+  const { UserID } = req.params;
+  pool.query(
+    'SELECT TaskID, task_title, task_body FROM Tasks WHERE UserID = ?',
+    [UserID],
+    (err, rows, fields) => {
+      if (err) {
+        return res.status(500).json({ message: err.message });
+      }
+      res.json(rows);
+    }
+  );
+};
+
 
 const create = (req, res) => {
-  const { user_id } = req.params;
-  const { post_title, post_body } = req.body;
+  const { UserID } = req.params;
+  const { task_title, task_body } = req.body;
   pool.query(
-    'INSERT INTO tasks (task_title, task_body, user_id) VALUES (?, ?, ?);',
-    [post_title, post_body, user_id],
+    'INSERT INTO Tasks (task_title, task_body, UserID) VALUES (?, ?, ?);',
+    [task_title, task_body, UserID],
     (err, result) => {
       if (err) {
         return res.status(500).json({ message: err.message });
