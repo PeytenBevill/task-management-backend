@@ -1,12 +1,13 @@
 const pool = require("../sql/connections")
 
 const list = (req, res) => {
-  const {UserID} = req.params
-  pool.query('SELECT firstName, lastName, user_role FROM users WHERE UserID = ?',[UserID], (err, rows, fields) => {
+  const {UserID} = req.params;
+  pool.query('SELECT * FROM Users WHERE UserID = ?', [UserID], (err, rows) => {
     if(err){
-      return res.status(500).json({message: err.message})
-    } 
-    res.json(rows)
+      return res.json({message: err.message})
+    } else {
+      res.json(rows)
+    }
   })
 }
 
