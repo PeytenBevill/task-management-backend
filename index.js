@@ -1,5 +1,6 @@
 const express = require('express')
-const tasksRouter = require("./src/routes/R-tasks")
+// const tasksRouter = require("./src/routes/R-tasks")
+const usersRouter = require("./src/routes/R-users")
 const cors = require('cors')
 
 
@@ -33,7 +34,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/', tasksRouter)
+app.use('/', usersRouter)
 
 
 app.get('/', (req, res) => {

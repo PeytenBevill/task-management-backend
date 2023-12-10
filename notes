@@ -25,13 +25,3 @@ UserTeam ID (Primary Key)
 User ID (Foreign Key, references Users)
 Team ID (Foreign Key, references Teams)
 
-
-
-
-
-
-SELECT Users.*
-FROM Users
-INNER JOIN Connections ON Users.UserID = Connections.`User B ID`
-WHERE Connections.`User A ID` = <user_id>
-^ this is for the teams tab to fetch connections in a connections table, so we will need a Connections table as well
